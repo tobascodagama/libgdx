@@ -180,6 +180,17 @@ public class DragAndDrop {
 	public void setDragTime (int dragMillis) {
 		this.dragTime = dragMillis;
 	}
+        
+        /** Removes all sources and targets from self. */
+        public void clear () {
+            for (Target t : targets) {
+                this.removeTarget(t);
+            }
+            
+            for (Source s : sourceListeners.keys()) {
+                this.removeSource(s);
+            }
+        }
 
 	/** A target where a payload can be dragged from.
 	 * @author Nathan Sweet */
